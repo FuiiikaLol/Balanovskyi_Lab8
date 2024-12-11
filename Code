@@ -1,0 +1,24 @@
+#include <iostream>
+#include <cstring>
+
+int кількістьСлів(const char* рядок) {
+    int лічильник = 0;
+    bool вСлові = false;
+
+    for (int i = 0; рядок[i] != '\0'; i++) {
+        if (рядок[i] != ' ' && !вСлові) {
+            лічильник++;
+            вСлові = true;
+        } else if (рядок[i] == ' ') {
+            вСлові = false;
+        }
+    }
+
+    return лічильник;
+}
+
+int main() {
+    const char* текст = "Привіт";
+    std::cout << "Кількість слів: " << кількістьСлів(текст) << std::endl;
+    return 0;
+}
